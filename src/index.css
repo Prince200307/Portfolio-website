@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-gray-900;
+}
+
+::selection {
+  @apply bg-primary/20;
+}
+
+.glass-card {
+  @apply backdrop-blur-md bg-white/90 shadow-xl;
+}
+
+.skill-card {
+  @apply transform transition-all duration-300 hover:scale-105 hover:rotate-1;
+}
+
+.project-card {
+  @apply transform transition-all duration-300 hover:-translate-y-2;
+}
+
+.internship-card {
+  @apply transform transition-all duration-300 hover:scale-102;
+}
+
+.education-card {
+  @apply transform transition-all duration-300 hover:-translate-y-1;
+}
+
+.contact-link {
+  @apply transform transition-all duration-300 hover:scale-110 hover:text-primary;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-dark;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light;
+}
+
+/* Page transitions */
+.page-transition {
+  @apply transition-opacity duration-300;
+}
+
+.page-enter {
+  @apply opacity-0;
+}
+
+.page-enter-active {
+  @apply opacity-100;
+}
+
+.page-exit {
+  @apply opacity-100;
+}
+
+.page-exit-active {
+  @apply opacity-0;
+}
+
+/* Card hover effects */
+.hover-card {
+  @apply relative overflow-hidden rounded-xl transition-all duration-300;
+}
+
+.hover-card::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.hover-card:hover::after {
+  @apply opacity-100;
+}
+
+.hover-card:hover {
+  @apply transform -translate-y-2 shadow-xl;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors duration-300 transform hover:scale-105 hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-300 transform hover:scale-105;
+}
